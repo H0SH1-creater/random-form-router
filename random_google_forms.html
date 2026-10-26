@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>実験フォームへの案内</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 640px;
+      margin: 12vh auto;
+      padding: 24px;
+      line-height: 1.7;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>実験フォームへ移動します</h1>
+  <p>フォームを準備しています。自動で移動しない場合は、下のボタンを押してください。</p>
+  <p><a id="continue-link" href="#">フォームを開く</a></p>
+
+  <script>
+    // 受け取った8つのGoogleフォームURL
+    const forms = [
+      "https://docs.google.com/forms/d/e/1FAIpQLSdnDi2HHAhZHcYnQxNfAf-y4TgfI8I-AvfMHu3nzkvF-yFwEA/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSfmQcsXHEdrtfV4hKcaKaqWOzD9uybYJSr-63rBQt5eYxN6OA/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSd7dGkMc3N9buejhgoy3LULeJ_WzPF7ZEAuwRinry9QoM3HhA/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLScUX3rrBQaM9L6U1CmhydOlBqyrIgc72yxi_WZM2Q62rCWhwg/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLScW_a-WFGruBWTlpP0eoceprt-yaOZtg0qaguaYhxVrkPrQeA/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdqFTZXqZUEoaDlmXsxK-ZmZ7cRr2xDUx-nNt1GM1tAFgcI2g/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSckSiKltltspVulElRK_kauRujlre4i8ZeAcid9Qdjn5BD11Q/viewform?usp=dialog",
+      "https://docs.google.com/forms/d/e/1FAIpQLSe21tR6Ypyy74BGG0ZbWmZt2GOICAKVjM7X8eNNEA_4_tWsLg/viewform?usp=dialog"
+    ];
+
+    // 8つから1つを等確率で選ぶ
+    const selectedForm = forms[Math.floor(Math.random() * forms.length)];
+    document.getElementById("continue-link").href = selectedForm;
+
+    // 同じブラウザータブで選択したフォームへ移動
+    window.location.replace(selectedForm);
+  </script>
+</body>
+</html>
